@@ -15,7 +15,7 @@ public class MoviesDAO {
 	public void addMovies(Movies movie) throws Exception {
 		try {
 			Connection connection = ConnectionUtil.getConnection();
-			String sql = "Insert into movies(id,name,price,releasedate,copyrightdate,createDateTime) values(movies_id_seq.NEXTVAL,?,?,?,?,?)";
+			String sql = "Insert into movies(id,name,price,releasedate,copyrightdate,createddatetime) values(movies_id_seq.NEXTVAL,?,?,?,?,?)";
 			PreparedStatement preparedstatement = connection
 					.prepareStatement(sql);
 			preparedstatement.setString(1, movie.name);
