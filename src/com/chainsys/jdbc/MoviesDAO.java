@@ -12,6 +12,12 @@ import java.util.ArrayList;
 
 public class MoviesDAO {
 
+	/**
+	 * Method to ADD Movies
+	 * 
+	 * @param movie
+	 * @throws Exception
+	 */
 	public void addMovies(Movies movie) throws Exception {
 		try {
 			Connection connection = ConnectionUtil.getConnection();
@@ -36,7 +42,7 @@ public class MoviesDAO {
 	}
 
 	/**
-	 * Update Movie
+	 * Method to Update Movies
 	 * 
 	 * @param name
 	 * @param price
@@ -60,7 +66,7 @@ public class MoviesDAO {
 	}
 
 	/**
-	 * Delete Movie
+	 * Method to Delete Movie
 	 * 
 	 * @param id
 	 * @throws Exception
@@ -81,6 +87,13 @@ public class MoviesDAO {
 		}
 	}
 
+	/**
+	 * Method to Find Movie by Id
+	 * 
+	 * @param movie
+	 * @return
+	 * @throws SQLException
+	 */
 	public Movies findById(Movies movie) throws SQLException {
 		Movies movieobj = null;
 		Connection connection = ConnectionUtil.getConnection();
@@ -108,6 +121,13 @@ public class MoviesDAO {
 		return movieobj;
 	}
 
+	/**
+	 * Method to find movies by its Copyright Date
+	 * 
+	 * @param movie
+	 * @return
+	 * @throws SQLException
+	 */
 	public Movies findByCopyright(Movies movie) throws SQLException {
 		Movies movieobj = null;
 		Connection connection = ConnectionUtil.getConnection();
@@ -135,6 +155,12 @@ public class MoviesDAO {
 		return movieobj;
 	}
 
+	/**
+	 * Method to view all Movies
+	 * 
+	 * @return
+	 * @throws SQLException
+	 */
 	public ArrayList<Movies> findAll() throws SQLException {
 		Connection connection = ConnectionUtil.getConnection();
 		String sqlselect = "select id,name,price from movies";
@@ -155,6 +181,12 @@ public class MoviesDAO {
 		return movieList;
 	}
 
+	/**
+	 * Method to View overall movies Available
+	 * 
+	 * @return
+	 * @throws SQLException
+	 */
 	public int moviesCount() throws SQLException {
 		Connection connection = ConnectionUtil.getConnection();
 		String sqlselect = "select count(id) from movies";

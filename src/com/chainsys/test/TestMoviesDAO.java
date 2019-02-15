@@ -23,16 +23,17 @@ public class TestMoviesDAO {
 		int input = scanner.nextInt();
 		switch (input) {
 		case 1:
-			System.out.println("Enter name,price,date(YYYY-MM-DD),copyrightDate to add");
+			System.out
+					.println("Enter name,price,date(YYYY-MM-DD),copyrightDate to add");
 			System.out.println("Enter Movie Name");
 			movies.name = scanner.next();
 			System.out.println("Enter Movie Price");
 			movies.price = scanner.nextInt();
-			System.out.println("Enter Date");
+			System.out.println("Enter Release Date");
 			String date = scanner.next();
 			movies.releaseDate = Date.valueOf(date);
 			System.out.println("Movie Copyright Date");
-			movies.copyrightDate=LocalDate.parse(scanner.next());
+			movies.copyrightDate = LocalDate.parse(scanner.next());
 			try {
 				movievalidate.validateAdd(movies);
 				moviesDAO.addMovies(movies);
@@ -98,16 +99,17 @@ public class TestMoviesDAO {
 			break;
 		case 7:
 			System.out.println("Enter Copyright date to find Movie");
-			String copydate=scanner.next();
-			movies.copyrightDate=LocalDate.parse(copydate);
+			String copydate = scanner.next();
+			movies.copyrightDate = LocalDate.parse(copydate);
 			Movies mov1 = moviesDAO.findByCopyright(movies);
-			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("E MMMM dd MM yyyy");
+			DateTimeFormatter formatter = DateTimeFormatter
+					.ofPattern("E MMMM dd MM yyyy");
 			if (mov1 != null) {
 				System.out.print("ID " + mov1.id + " ");
 				System.out.print("Name " + mov1.name + " ");
 				System.out.print("Price " + mov1.price);
 				String copy = formatter.format(mov1.copyrightDate);
-				System.out.println("CopyRight Date :"+copy);
+				System.out.println("CopyRight Date :" + copy);
 			} else {
 				System.out.println("No Record");
 			}
